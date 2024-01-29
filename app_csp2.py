@@ -1,25 +1,18 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Jan 27 11:49:35 2024
-
-@author: IT Department
-"""
-
 import numpy as np
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
-from streamlit_extras.app_logo import add_logo
 from PIL import Image
 from streamlit_extras.let_it_rain import rain
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('/saved/diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/heart_disease_model.sav', 'rb'))
+heart_disease_model = pickle.load(open('/saved/heart_disease_model.sav', 'rb'))
 
-parkinsons_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('/saved/parkinsons_model.sav', 'rb'))
 
 # page config function
 st.set_page_config(
@@ -42,7 +35,7 @@ def add_logoo(logo_path, width, height):
     modified_logo = logo.resize((width, height))
     return modified_logo
 
-my_logo = add_logoo(logo_path="C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/NCM_CSP_logo_blue.png", width=392, height=168)
+my_logo = add_logoo(logo_path="/pic/NCM_CSP_logo_blue.png", width=392, height=168)
 st.sidebar.image(my_logo)
 
 # OR
@@ -87,7 +80,7 @@ if selected == 'Cloud Seeding Program':
 # =============================================================================
     
     
-    st.image(add_logoo(logo_path='C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/csp banner ewbsite.png', width=1450, height=200)) 
+    st.image(add_logoo(logo_path='/pic/csp banner ewbsite.png', width=1450, height=200)) 
     
     
     
@@ -129,15 +122,15 @@ if selected == 'Cloud Seeding Program':
 
 
     
-    #st.image(add_logoo(logo_path='C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/radargif.gif', width=1036, height=680)) 
+    #st.image(add_logoo(logo_path='/pic/radargif.gif', width=1036, height=680)) 
     
     left_co, cent_co,last_co = st.columns(3)
     with left_co: 
-        st.image(add_logoo(logo_path='C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/sky.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='/pic/sky.jpg', width=1036, height=680))
     with cent_co:
-        st.image(add_logoo(logo_path='C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/cloud11.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='/pic/cloud11.jpg', width=1036, height=680))
     with last_co: 
-        st.image(add_logoo(logo_path='C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/pic/plane2.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='/pic/plane2.jpg', width=1036, height=680))
         
         
 # =============================================================================
@@ -169,7 +162,7 @@ if selected == 'Seeding Decision':
     
     
     # loading the saved model
-    loaded_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/seeding_model.sav', 'rb'))
+    loaded_model = pickle.load(open('/saved/seeding_model.sav', 'rb'))
 
 
     # creating a function for Prediction
@@ -498,5 +491,8 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
+
+
+
 
 
