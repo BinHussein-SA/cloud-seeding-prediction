@@ -4,3 +4,4 @@ streamlit==1.29.0
 streamlit-option-menu==0.3.6
 pickle-mixin==1.0.2
 streamlit-extras==0.3.6
+pillow==10.2.0
