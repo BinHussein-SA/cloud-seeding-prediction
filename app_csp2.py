@@ -35,7 +35,7 @@ def add_logoo(logo_path, width, height):
     modified_logo = logo.resize((width, height))
     return modified_logo
 
-my_logo = add_logoo(logo_path="/pic/NCM_CSP_logo_blue.png", width=392, height=168)
+my_logo = add_logoo(logo_path="pic/NCM_CSP_logo_blue.png", width=392, height=168)
 st.sidebar.image(my_logo)
 
 # OR
