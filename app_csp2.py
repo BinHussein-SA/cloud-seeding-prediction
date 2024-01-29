@@ -80,7 +80,7 @@ if selected == 'Cloud Seeding Program':
 # =============================================================================
     
     
-    st.image(add_logoo(logo_path='/pic/csp banner ewbsite.png', width=1450, height=200)) 
+    st.image(add_logoo(logo_path='pic/csp banner ewbsite.png', width=1450, height=200)) 
     
     
     
