@@ -14,11 +14,11 @@ from streamlit_extras.let_it_rain import rain
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('saved models/diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('saved/diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('saved models/heart_disease_model.sav', 'rb'))
+heart_disease_model = pickle.load(open('saved/heart_disease_model.sav', 'rb'))
 
-parkinsons_model = pickle.load(open('saved models/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('saved/parkinsons_model.sav', 'rb'))
 
 # page config function
 st.set_page_config(
@@ -205,7 +205,7 @@ if selected == 'Informed Cloud Seeding Decision':
     else:
             
         # loading the saved model
-        loaded_model = pickle.load(open('saved_models/seeding_model.sav', 'rb'))
+        loaded_model = pickle.load(open('saved/seeding_model.sav', 'rb'))
     
     
         # creating a function for Prediction
