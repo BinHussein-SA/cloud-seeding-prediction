@@ -54,7 +54,7 @@ with st.sidebar:
                             'Public weather services'],
                            menu_icon='⚠️',
                            icons=['info-lg','cloud-hail', 'megaphone', 'heart-pulse','water','wind','globe-americas','megaphone'],
-                           default_index=0)
+                           default_index=1)
 
 
 
