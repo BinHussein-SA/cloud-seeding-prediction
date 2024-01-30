@@ -176,7 +176,7 @@ if selected == 'Informed Cloud Seeding Decision':
     
     genre = st.radio(
     "***Select a City:***",
-    [":black[***Riyadh***]", "***Abha***", "***Hail***"],
+    [":black[Riyadh]", "Abha", "Hail"],
     captions = ["Central Region", "Southwest Region", "Northwest Region"],
     horizontal = 1
     )
@@ -221,7 +221,7 @@ if selected == 'Informed Cloud Seeding Decision':
         
     
         
-        st.write('')
+        
         
         st.markdown("<h3 style='text-align: left; color: black;'>Enter the following indexes</h3>", unsafe_allow_html=True)
 
