@@ -44,8 +44,8 @@ st.sidebar.image(my_logo)
 with st.sidebar:
     selected = option_menu('Tailored Warning System',
 
-                           ['Cloud Seeding Program',
-                            'Informed Cloud Seeding Decision',
+                           
+                           ['Informed Cloud Seeding Decision',
                             'Farming and food',
                             'Health',
                             'Flood',
@@ -53,8 +53,8 @@ with st.sidebar:
                             'Tourism',
                             'Public weather services'],
                            menu_icon='⚠️',
-                           icons=['info-lg','cloud-hail', 'megaphone', 'heart-pulse','water','wind','globe-americas','megaphone'],
-                           default_index=1)
+                           icons=['cloud-hail', 'megaphone', 'heart-pulse','water','wind','globe-americas','megaphone'],
+                           default_index=0)
 
 
 
@@ -223,7 +223,7 @@ if selected == 'Informed Cloud Seeding Decision':
         
         
         
-        st.markdown("<h3 style='text-align: left; color: black;'>Enter the following indexes</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left; color: black;'>Enter index values</h3>", unsafe_allow_html=True)
 
         st.write('')
         # getting the input data from the user
