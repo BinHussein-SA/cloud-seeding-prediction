@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 27 11:49:35 2024
+
+@author: IT Department
+"""
+
 import numpy as np
-import pickle
+import pickle 
 import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
@@ -8,16 +14,16 @@ from streamlit_extras.let_it_rain import rain
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('saved/diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('saved models/diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('saved/heart_disease_model.sav', 'rb'))
+heart_disease_model = pickle.load(open('saved models/heart_disease_model.sav', 'rb'))
 
-parkinsons_model = pickle.load(open('saved/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('saved models/parkinsons_model.sav', 'rb'))
 
 # page config function
 st.set_page_config(
     page_title="Cloud Seeding Program",
-    page_icon=":rain_cloud:",
+    page_icon=":droplet:",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
@@ -45,15 +51,25 @@ st.sidebar.image(my_logo)
 
 # sidebar for navigation
 with st.sidebar:
-    selected = option_menu('NCM Warning Prediction System',
+    selected = option_menu('Tailored Warning System',
 
                            ['Cloud Seeding Program',
-                            'Seeding Decision',
-                            'Farmer Warning',
-                            'Healthcare Warning'],
+                            'Informed Cloud Seeding Decision',
+                            'Farming and food',
+                            'Health',
+                            'Flood',
+                            'Air Quality',
+                            'Tourism',
+                            'Public weather services'],
                            menu_icon='⚠️',
-                           icons=['info-lg','cloud-hail', 'megaphone', 'heart-pulse'],
+                           icons=['info-lg','cloud-hail', 'megaphone', 'heart-pulse','water','wind','globe-americas','megaphone'],
                            default_index=0)
+
+
+
+
+
+
 
 
 # Cloud Seeding Program Page
@@ -122,15 +138,15 @@ if selected == 'Cloud Seeding Program':
 
 
     
-    #st.image(add_logoo(logo_path='/pic/radargif.gif', width=1036, height=680)) 
+    #st.image(add_logoo(logo_path='pic/radargif.gif', width=1036, height=680)) 
     
     left_co, cent_co,last_co = st.columns(3)
     with left_co: 
-        st.image(add_logoo(logo_path='/pic/sky.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='pic/sky.jpg', width=1036, height=680))
     with cent_co:
-        st.image(add_logoo(logo_path='/pic/cloud11.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='pic/cloud11.jpg', width=1036, height=680))
     with last_co: 
-        st.image(add_logoo(logo_path='/pic/plane2.jpg', width=1036, height=680))
+        st.image(add_logoo(logo_path='pic/plane2.jpg', width=1036, height=680))
         
         
 # =============================================================================
@@ -152,101 +168,130 @@ def example():
         emoji="💧",
         font_size=25,
         falling_speed=2,
-        animation_length="infinite",
+        animation_length="infinite",    
     )
+    return "Clouds are Suitable for Seeding"
 ##########################################################################
 
 
 # Seeding Decision Page
-if selected == 'Seeding Decision':
+if selected == 'Informed Cloud Seeding Decision':
     
-    
-    # loading the saved model
-    loaded_model = pickle.load(open('saved/seeding_model.sav', 'rb'))
-
-
-    # creating a function for Prediction
-
-    def seeding_prediction(input_data):
-        
-
-        # changing the input_data to numpy array
-        input_data_as_numpy_array = np.asarray(input_data)
-        print(input_data_as_numpy_array)
-
-        # reshape the array as we are predicting for one instance
-        input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-        print(input_data_reshaped)
-
-        prediction = loaded_model.predict(input_data_reshaped)
-        print(prediction)
-
-        if (prediction[0] == 0):
-          return 'Clouds are not Suitable for seeding'
-        else:
-          return '--->  Clouds Suitable for seeding'
-      
-    
-
     # page title
     st.title('Seeding Decision using ML')
     
-    # getting the input data from the user
-    col1, col2, col3 = st.columns(3)
     
+    # =============================================================================
 
-    with col1:
-        showalter_Index = st.text_input('Showalter index value')
 
-    with col2:
-        Lifted_index  = st.text_input('Lifted index value')
-
-    with col3:
-        LIFT_computed_virtual_temp  = st.text_input('LIFT using virtual temperature value')
-
-    with col1:
-        SWEAT_index  = st.text_input('SWEAT index value')
-
-    with col2:
-        K_index  = st.text_input('K index value')
-
-    with col3:
-        Tot_tot_index  = st.text_input('Totals totals index value')
-
-    with col1:
-        CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
-
-    with col2:
-        Convective_Available_Potential_Energy  = st.text_input('CAPE value')
-     
+    #### 
     
-# =============================================================================
-#     # getting the input data from the user
-#     
-#     
-#     showalter_Index = st.text_input('Showalter index value')
-#     Lifted_index  = st.text_input('Lifted index value')
-#     LIFT_computed_virtual_temp  = st.text_input('LIFT computed using virtual temperature value')
-#     SWEAT_index  = st.text_input('SWEAT index value')
-#     K_index  = st.text_input('K index value')
-#     Tot_tot_index  = st.text_input('Totals totals index value')
-#     CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
-#     Convective_Available_Potential_Energy  = st.text_input('Convective Available Potential Energy value')
-#     
-# =============================================================================
     
+    genre = st.radio(
+    "Select a City:",
+    [":black[***Riyadh***]", "***Abha***", "***Hail***"],
+    captions = ["Central Region", "Southwest Region", "Northwest Region"],
+    horizontal = 1
+    )
 
-
-    # code for Prediction
-    decision = ''
+    if genre == '***Abha***':
+        st.write('')
+        st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
-    # creating a button for Prediction
+    elif genre == '***Hail***':
+        st.write('')
+        st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
-    if st.button('Seeding Test Result'):
-        decision = seeding_prediction([showalter_Index, Lifted_index, LIFT_computed_virtual_temp, SWEAT_index, K_index, Tot_tot_index, CINS_virtual_temperature, Convective_Available_Potential_Energy])
-        example()
+    else:
+            
+        # loading the saved model
+        loaded_model = pickle.load(open('saved_models/seeding_model.sav', 'rb'))
+    
+    
+        # creating a function for Prediction
+    
+        def seeding_prediction(input_data):
+            
+    
+            # changing the input_data to numpy array
+            input_data_as_numpy_array = np.asarray(input_data)
+            print(input_data_as_numpy_array)
+    
+            # reshape the array as we are predicting for one instance
+            input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+            print(input_data_reshaped)
+    
+            prediction = loaded_model.predict(input_data_reshaped)
+            print(prediction)
+    
+            if (prediction[0] == 0):
+              return 'Clouds are not Suitable for seeding'
+            else:
+                return example()
+          
         
-    st.success(decision)
+    
+        
+        
+        # getting the input data from the user
+        col1, col2, col3 = st.columns(3)
+        
+    
+        with col1:
+            showalter_Index = st.text_input('Showalter index value')
+    
+        with col2:
+            Lifted_index  = st.text_input('Lifted index value')
+    
+        with col3:
+            LIFT_computed_virtual_temp  = st.text_input('LIFT using virtual temperature value')
+    
+        with col1:
+            SWEAT_index  = st.text_input('SWEAT index value')
+    
+        with col2:
+            K_index  = st.text_input('K index value')
+    
+        with col3:
+            Tot_tot_index  = st.text_input('Totals totals index value')
+    
+        with col1:
+            CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
+    
+        with col2:
+            Convective_Available_Potential_Energy  = st.text_input('CAPE value')
+         
+        
+    # =============================================================================
+    #     # getting the input data from the user
+    #     
+    #     
+    #     showalter_Index = st.text_input('Showalter index value')
+    #     Lifted_index  = st.text_input('Lifted index value')
+    #     LIFT_computed_virtual_temp  = st.text_input('LIFT computed using virtual temperature value')
+    #     SWEAT_index  = st.text_input('SWEAT index value')
+    #     K_index  = st.text_input('K index value')
+    #     Tot_tot_index  = st.text_input('Totals totals index value')
+    #     CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
+    #     Convective_Available_Potential_Energy  = st.text_input('Convective Available Potential Energy value')
+    #     
+    # =============================================================================
+        
+    
+    
+        # code for Prediction
+        decision = ''
+        
+        # creating a button for Prediction
+        
+        if st.button('Seeding Test Result'):
+            decision = seeding_prediction([showalter_Index, Lifted_index, LIFT_computed_virtual_temp, SWEAT_index, K_index, Tot_tot_index, CINS_virtual_temperature, Convective_Available_Potential_Energy])
+            
+            
+        st.success(decision)
+        # =============================================================================
+        
+
     
 
 # =============================================================================
@@ -491,8 +536,5 @@ text-align: center;
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
-
-
-
 
 
