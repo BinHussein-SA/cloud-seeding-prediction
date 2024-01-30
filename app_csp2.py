@@ -176,9 +176,10 @@ if selected == 'Informed Cloud Seeding Decision':
     
     genre = st.radio(
     "***Select a City:***",
-    [":black[Riyadh]", "Abha", "Hail"],
+    ["Riyadh", "Abha", "Hail"],
     captions = ["Central Region", "Southwest Region", "Northwest Region"],
-    horizontal = 1
+    horizontal = 1,
+    index = None
     )
 
     st.divider()
@@ -191,7 +192,7 @@ if selected == 'Informed Cloud Seeding Decision':
         st.write('')
         st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
-    else:
+    elif genre == 'Riyadh':
             
         # loading the saved model
         loaded_model = pickle.load(open('saved/seeding_model.sav', 'rb'))
@@ -283,7 +284,10 @@ if selected == 'Informed Cloud Seeding Decision':
             
             st.success(decision)
         # =============================================================================
-        
+    else: 
+        st.write('')
+        st.write('No selection')
+
 
     
 
