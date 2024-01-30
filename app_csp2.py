@@ -281,7 +281,7 @@ if selected == 'Informed Cloud Seeding Decision':
             decision = seeding_prediction([showalter_Index, Lifted_index, LIFT_computed_virtual_temp, SWEAT_index, K_index, Tot_tot_index, CINS_virtual_temperature, Convective_Available_Potential_Energy])
             
             
-        st.success(decision)
+            st.success(decision)
         # =============================================================================
         
 
