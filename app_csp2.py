@@ -219,7 +219,9 @@ if selected == 'Informed Cloud Seeding Decision':
         
     
         
-        
+        st.write('')
+        st.write('')
+        st.write('')
         # getting the input data from the user
         col1, col2, col3 = st.columns(3)
         
