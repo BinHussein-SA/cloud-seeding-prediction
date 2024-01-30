@@ -532,7 +532,7 @@ text-align: center;
 }
 </style>
 <div class="footer">
-<p>Developed with ❤ by  Muhammed Alhaddad
+<p>Developed with ❤ by  Cloud Seeding Team
 </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
