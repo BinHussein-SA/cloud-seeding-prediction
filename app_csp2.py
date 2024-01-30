@@ -183,11 +183,11 @@ if selected == 'Informed Cloud Seeding Decision':
 
     st.divider()
 
-    if genre == '***Abha***':
+    if genre == 'Abha':
         st.write('')
         st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
-    elif genre == '***Hail***':
+    elif genre == 'Hail':
         st.write('')
         st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
