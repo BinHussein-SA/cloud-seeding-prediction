@@ -286,7 +286,7 @@ if selected == 'Informed Cloud Seeding Decision':
         # =============================================================================
     else: 
         st.write('')
-        st.write('No selection')
+        
 
 
     
