@@ -177,12 +177,13 @@ if selected == 'Informed Cloud Seeding Decision':
 
     # image of the ai page 
     st.image(add_logoo(logo_path='pic/ai1.png', width=1450, height=200))
+    st.divider()
 
 
     # =============================================================================
 
     
-    st.markdown("<h2 style='text-align: left; color: black;'>Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: left; color: black;'>Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model</h3>", unsafe_allow_html=True)
 
     
     # =============================================================================
