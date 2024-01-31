@@ -11,6 +11,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 from streamlit_extras.let_it_rain import rain
+import datetime
 
 
 # page config function
@@ -159,7 +160,101 @@ def example():
     )
     return "Clouds are Suitable for Seeding"
 ##########################################################################
+# =============================================================================
+# =============================================================================
+# =============================================================================
 
+def modelfun(ind1,ind2,ind3,ind4,ind5,ind6,ind7,ind8,ind9):
+    # loading the saved model
+    loaded_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/seeding_model.sav', 'rb'))
+
+
+    # creating a function for Prediction
+
+    def seeding_prediction(input_data):
+        
+
+        # changing the input_data to numpy array
+        input_data_as_numpy_array = np.asarray(input_data)
+        print(input_data_as_numpy_array)
+
+        # reshape the array as we are predicting for one instance
+        input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+        print(input_data_reshaped)
+
+        prediction = loaded_model.predict(input_data_reshaped)
+        print(prediction)
+
+        if (prediction[0] == 0):
+          return 'Clouds are not Suitable for seeding'
+        else:
+            return example()
+      
+    
+
+    
+    
+    # getting the input data from the user
+    col1, col2, col3 = st.columns(3)
+    
+
+    with col1:
+        showalter_Index = st.text_input('Showalter index value',value=ind1)
+
+    with col2:
+        Lifted_index  = st.text_input('Lifted index value',value=ind2)
+
+    with col3:
+        LIFT_computed_virtual_temp  = st.text_input('LIFT using virtual temperature value',value=ind3)
+
+    with col1:
+        SWEAT_index  = st.text_input('SWEAT index value',value=ind4)
+
+    with col2:
+        K_index  = st.text_input('K index value',value=ind5)
+
+    with col3:
+        Tot_tot_index  = st.text_input('Totals totals index value',value=ind6)
+
+    with col1:
+        CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value',value=ind7)
+
+    with col2:
+        Convective_Available_Potential_Energy  = st.text_input('CAPE value',value=ind8)
+    with col3:
+        Jefferson_index = st.text_input('Jefferson index',value=ind9)
+     
+    
+# =============================================================================
+#     # getting the input data from the user
+#     
+#     
+#     showalter_Index = st.text_input('Showalter index value')
+#     Lifted_index  = st.text_input('Lifted index value')
+#     LIFT_computed_virtual_temp  = st.text_input('LIFT computed using virtual temperature value')
+#     SWEAT_index  = st.text_input('SWEAT index value')
+#     K_index  = st.text_input('K index value')
+#     Tot_tot_index  = st.text_input('Totals totals index value')
+#     CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
+#     Convective_Available_Potential_Energy  = st.text_input('Convective Available Potential Energy value')
+#     
+# =============================================================================
+    
+
+
+    # code for Prediction
+    decision = ''
+    
+    # creating a button for Prediction
+    
+    if st.button('Seeding Test Result'):
+        decision = seeding_prediction([showalter_Index, Lifted_index, LIFT_computed_virtual_temp, SWEAT_index, K_index, Tot_tot_index, CINS_virtual_temperature, Convective_Available_Potential_Energy])
+        
+        
+        st.success(decision)
+# =============================================================================
+# =============================================================================
+# =============================================================================
 
 # Seeding Decision Page
 if selected == 'Informed Cloud Seeding Decision':
@@ -211,97 +306,40 @@ if selected == 'Informed Cloud Seeding Decision':
         st.markdown("<h3 style='text-align: left; color: black;'>No Data Available.</h1>", unsafe_allow_html=True)
     
     elif genre == 'Riyadh':
+        
+        
+        # ==========================================
+        dateBut = st.date_input("Select Date", datetime.date(2023, 3, 1))
+        print(dateBut)
+       
+        st.divider()
+       
+        
+       
+        if dateBut == datetime.date(2023, 3, 2):
+            print('second print')
+            print(dateBut)
+            print('ffdf')
             
-        # loading the saved model
-        loaded_model = pickle.load(open('saved/seeding_model.sav', 'rb'))
-    
-    
-        # creating a function for Prediction
-    
-        def seeding_prediction(input_data):
             
-    
-            # changing the input_data to numpy array
-            input_data_as_numpy_array = np.asarray(input_data)
-            print(input_data_as_numpy_array)
-    
-            # reshape the array as we are predicting for one instance
-            input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-            print(input_data_reshaped)
-    
-            prediction = loaded_model.predict(input_data_reshaped)
-            print(prediction)
-    
-            if (prediction[0] == 0):
-              return 'Clouds are not Suitable for seeding'
-            else:
-                return example()
-          
-        
-    
-        
-        
-        
-        st.markdown("<h3 style='text-align: left; color: black;'>Enter index values</h3>", unsafe_allow_html=True)
+            
+            modelfun(-0.44,-0.36, -0.91, 311.75, 33.7, 49, -143.63, 134.09, 22.02)
+            
+        # ==========================================
+            
+        elif dateBut == datetime.date(2023, 3, 4):
+            
+                
+                modelfun(-4.14, -1.58, -2.13, 304.8, 41.6, 53.8, -154.9, 570.58, 27.41)
+            
+        # ------------------------------------------
+                
 
-        st.write('')
-        # getting the input data from the user
-        col1, col2, col3 = st.columns(3)
-        
-    
-        with col1:
-            showalter_Index = st.text_input('Showalter index value')
-    
-        with col2:
-            Lifted_index  = st.text_input('Lifted index value')
-    
-        with col3:
-            LIFT_computed_virtual_temp  = st.text_input('LIFT using virtual temperature value')
-    
-        with col1:
-            SWEAT_index  = st.text_input('SWEAT index value')
-    
-        with col2:
-            K_index  = st.text_input('K index value')
-    
-        with col3:
-            Tot_tot_index  = st.text_input('Totals totals index value')
-    
-        with col1:
-            CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
-    
-        with col2:
-            Convective_Available_Potential_Energy  = st.text_input('CAPE value')
-         
-        
-    # =============================================================================
-    #     # getting the input data from the user
-    #     
-    #     
-    #     showalter_Index = st.text_input('Showalter index value')
-    #     Lifted_index  = st.text_input('Lifted index value')
-    #     LIFT_computed_virtual_temp  = st.text_input('LIFT computed using virtual temperature value')
-    #     SWEAT_index  = st.text_input('SWEAT index value')
-    #     K_index  = st.text_input('K index value')
-    #     Tot_tot_index  = st.text_input('Totals totals index value')
-    #     CINS_virtual_temperature  = st.text_input('CINS using virtual temperature value')
-    #     Convective_Available_Potential_Energy  = st.text_input('Convective Available Potential Energy value')
-    #     
-    # =============================================================================
-        
-    
-    
-        # code for Prediction
-        decision = ''
-        
-        # creating a button for Prediction
-        
-        if st.button('Seeding Test Result'):
-            decision = seeding_prediction([showalter_Index, Lifted_index, LIFT_computed_virtual_temp, SWEAT_index, K_index, Tot_tot_index, CINS_virtual_temperature, Convective_Available_Potential_Energy])
+        else: 
+            st.write('')
             
-            
-            st.success(decision)
-        # =============================================================================
+    
+
     else: 
         st.write('')
         
