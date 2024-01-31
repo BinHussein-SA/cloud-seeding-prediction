@@ -173,7 +173,7 @@ if selected == 'Informed Cloud Seeding Decision':
 
     #### 
     
-    
+    st.write('')
     genre = st.radio(
     "***Select a City:***",
     ["Riyadh", "Abha", "Hail"],
