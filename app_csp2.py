@@ -165,7 +165,7 @@ def example():
 if selected == 'Informed Cloud Seeding Decision':
     
     # page title
-    st.title('Seeding Decision using ML')
+    st.title('Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model')
     
     
     # =============================================================================
