@@ -166,7 +166,7 @@ def example():
 
 def modelfun(ind1,ind2,ind3,ind4,ind5,ind6,ind7,ind8,ind9):
     # loading the saved model
-    loaded_model = pickle.load(open('C:/Users/IT Department/Downloads/Streamlit Apps/multiple-disease-prediction-streamlit-app-main/saved_models/seeding_model.sav', 'rb'))
+    loaded_model = pickle.load(open('saved/seeding_model.sav', 'rb'))
 
 
     # creating a function for Prediction
