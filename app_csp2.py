@@ -164,9 +164,26 @@ def example():
 # Seeding Decision Page
 if selected == 'Informed Cloud Seeding Decision':
     
+
+
+
+    # =============================================================================
     # page title
-    st.title('Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model')
+    #st.title('Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model')
+
     
+    # image titale 
+    st.markdown("<h3 style='text-align: center; color: black;'>Process Overview</h3>", unsafe_allow_html=True)
+
+    # image of the ai page 
+    st.image(add_logoo(logo_path='pic/ai1.png', width=1450, height=200))
+
+
+    # =============================================================================
+
+    
+    st.markdown("<h2 style='text-align: left; color: black;'>Cloud Seeding Predictive Decision Support System Using Artificial Intelligent Model</h2>", unsafe_allow_html=True)
+
     
     # =============================================================================
 
